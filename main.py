@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import io
+
 st.title('Data Visualization')
 
 st.header('Upload data file')
@@ -12,3 +14,8 @@ if data_file is not None:
 
   st.header('Desciptive statistics')
   st.table(df.describe())
+
+  st.header('Show Data Information')
+  buffer = io.StringIO()
+  df.info(buf = buffer)
+  st.text(buffer.getvalue())
