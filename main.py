@@ -19,3 +19,12 @@ if data_file is not None:
   buffer = io.StringIO()
   df.info(buf = buffer)
   st.text(buffer.getvalue())
+
+   #Visualize each attribute
+  st.header('Visualize each attribute')
+  for col in list(df.columns):
+    fix, ax = plt.subplots()
+    ax.hist(df[col], bins = 20)
+    plt.xlabel(col)
+    plt.ylabel('Quality')
+    plt.fig
